@@ -241,7 +241,7 @@ function render(){
   document.title=`${p.title} · Lizmaria Ortega, Realtor®`;
   if(done){
     const m=t(done.method);
-    app.innerHTML=`<div class="content" style="grid-template-columns:1fr"><div class="okbox" role="status"><h2>${esc(t(done.kind==="showing"?"okTitle":"okSimilarTitle"))}</h2><p>${esc(t(done.kind==="showing"?"okBody":"okSimilarBody").replace("{t}",p.title).replace("{m}",m.toLowerCase()))}</p><p class="small">${esc(t("okRef"))}: ${esc(done.id)}</p></div>${agentCard()}</div>`;
+    app.innerHTML=`<div class="content" style="grid-template-columns:1fr"><div class="okbox" role="status"><h2>${esc(t(done.kind==="showing"?"okTitle":"okSimilarTitle"))}</h2><p>${esc(t(done.kind==="showing"?"okBody":"okSimilarBody").replace("{t}",p.title).replace("{m}",done.method==="WhatsApp"?"WhatsApp":m.toLowerCase()))}</p><p class="small">${esc(t("okRef"))}: ${esc(done.id)}</p></div>${agentCard()}</div>`;
     window.scrollTo(0,0);return;
   }
   const photos=p.photos||[];
