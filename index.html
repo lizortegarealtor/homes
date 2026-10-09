@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Property · Lizmaria Ortega, Realtor®</title>
+<meta name="description" content="Property details and showing requests — Lizmaria Ortega, Realtor®, Interinvestments Realty, Miami.">
+<meta property="og:title" content="Property details · Lizmaria Ortega, Realtor®">
+<meta property="og:description" content="See photos, price and details, and request a showing. Se habla español.">
+<meta name="theme-color" content="#056d7e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#f4f8f8;--surface:#fff;--surface2:#e8f1f2;--fg:#14262a;--muted:#5b7177;--line:#d3e2e4;--accent:#056d7e;--accent-ink:#fff;--deep:#2a545c;--soft:#d5ebee;--warn:#9a6a00;--warn-soft:#f6ecd0;--bad:#b4361f;--bad-soft:#f8e2dc;--ok:#2f7a45;--ok-soft:#dcefe1;--display:"Fraunces",Georgia,serif;--body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--r:12px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--body);padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--accent)}
+.top{background:var(--deep);color:#fff;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+.topin{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{line-height:1.2}
+.brand b{font-family:var(--display);font-weight:600;font-size:1.05rem;display:block}
+.brand span{font-size:.78rem;opacity:.85}
+.lang{display:flex;border:1px solid rgba(255,255,255,.5);border-radius:999px;overflow:hidden;flex:none}
+.lang button{background:none;border:0;color:#fff;padding:6px 12px;font-weight:700;font-size:.82rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--deep)}
+main{max-width:980px;margin:0 auto;padding:0 0 24px}
+.gallery{position:relative;background:#0d1d20}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/3;max-height:62vh}
+.track::-webkit-scrollbar{display:none}
+.track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;cursor:zoom-in}
+.count{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px}
+.navb{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.88);font-size:1.3rem;cursor:pointer;display:none}
+.navb.prev{left:10px}.navb.next{right:10px}
+@media (hover:hover){.navb{display:block}}
+.nophoto{aspect-ratio:16/7;display:grid;place-items:center;color:#9fc3c8;font-size:.95rem}
+.content{padding:18px 16px;display:grid;gap:18px}
+@media(min-width:860px){.content{grid-template-columns:1fr 340px;align-items:start}.side{position:sticky;top:16px}}
+.badge{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--accent)}
+.badge.warn{background:var(--warn-soft);color:var(--warn)}.badge.bad{background:var(--bad-soft);color:var(--bad)}
+.price{font-family:var(--display);font-weight:600;font-size:2rem;line-height:1.1;margin:8px 0 2px}
+.price small{font-family:var(--body);font-size:1rem;color:var(--muted);font-weight:500}
+h1{font-size:1.2rem;margin:4px 0 2px;line-height:1.3}
+.where{color:var(--muted);margin:0}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:76px}
+.fact b{display:block;font-size:1.15rem}.fact span{font-size:.78rem;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.card h2{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:0 0 8px}
+.prose{white-space:pre-line;margin:0;overflow-wrap:anywhere}
+.small{font-size:.85rem;color:var(--muted)}
+.agent{display:flex;gap:12px;align-items:center}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:1.2rem;flex:none}
+.agent b{display:block}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer;text-decoration:none;color:var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.block{width:100%}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.chip:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;z-index:10}
+.sticky .btn{flex:1}
+@media(min-width:860px){.sticky{display:none}body{padding-bottom:0}}
+form{display:grid;gap:14px}
+label.f{display:grid;gap:5px;font-weight:600;font-size:.9rem}
+label.f small{font-weight:400;color:var(--muted)}
+input[type=text],input[type=tel],input[type=email],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:16px}
+textarea{min-height:76px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:420px){.row2{grid-template-columns:1fr}}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0}
+.chip span{display:block;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.9rem;cursor:pointer;background:var(--surface)}
+.chip input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;line-height:1.4}
+.check input{width:20px;height:20px;margin-top:1px;flex:none;accent-color:var(--accent)}
+.note{background:var(--warn-soft);border-left:4px solid var(--warn);padding:10px 12px;border-radius:0 10px 10px 0;font-size:.9rem}
+.err{background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:10px 12px;font-weight:600;font-size:.92rem}
+.okbox{background:var(--ok-soft);border:1px solid var(--ok);border-radius:var(--r);padding:18px}
+.okbox h2{color:var(--ok)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:50;display:flex;align-items:center;justify-content:center}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lightbox button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;background:#fff;border:0;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}
+.center{padding:48px 16px;text-align:center;max-width:560px;margin:0 auto}
+.skel{height:240px;background:linear-gradient(90deg,var(--surface2),var(--surface),var(--surface2));background-size:200% 100%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+footer{max-width:980px;margin:0 auto;padding:8px 16px 24px;font-size:.78rem;color:var(--muted)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand"><b>Lizmaria Ortega, Realtor®</b><span>Interinvestments Realty · <a href="tel:+13055058292" style="color:#fff">(305) 505-8292</a></span></div>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button></div>
+</div></header>
+
+<main id="app"><div class="skel" aria-hidden="true"></div><p class="center small" data-t="loading">Loading property…</p></main>
+
+<footer>
+  <p data-t="disclaimer">Information is provided by the listing source and is believed reliable but not guaranteed. Prices, availability and terms can change without notice. Equal Housing Opportunity.</p>
+</footer>
+
+<div class="sticky" id="sticky" hidden></div>
+<div id="lb"></div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+const API=window.LO_API||"";
+const PHONE="(305) 505-8292", TEL="+13055058292", EMAIL="lizortegarealtor@gmail.com";
+const qs=new URLSearchParams(location.search);
+const pid=(qs.get("p")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+const src=qs.get("src")||"";
+const utm={};["utm_source","utm_medium","utm_campaign","utm_content"].forEach(k=>utm[k]=qs.get(k)||"");
+
+const T={
+en:{loading:"Loading property…",disclaimer:"Information is provided by the listing source and is believed reliable but not guaranteed. Prices, availability and terms can change without notice. Equal Housing Opportunity.",
+ forSale:"For sale",forRent:"For rent",mo:"/mo",beds:"Beds",baths:"Baths",sqft:"Sq ft",photos:"photos",noPhotos:"Photos coming soon",
+ Available:"Available",Pending:"Pending",Rented:"Rented",Sold:"Sold",
+ about:"About this home",reqs:"Move-in requirements",fees:"Fees",attr:"Listing information",
+ request:"Request a showing",call:"Call",text:"Text",email:"Email",
+ agentLine:"Bilingual Realtor® · English & Español",
+ formTitle:"Request a showing",formIntro:"Tell me a little about you and when you’d like to see it. It takes under a minute.",
+ name:"Full name",phone:"Phone",emailF:"Email",phoneOrEmail:"Phone or email — at least one",
+ method:"Best way to reach you",Text:"Text",Call:"Call",Email:"Email",WhatsApp:"WhatsApp",
+ timeline:"When are you planning to move?",choose:"Choose…",
+ tl:{"As soon as possible":"As soon as possible","Within 30 days":"Within 30 days","1–3 months":"1–3 months","3–6 months":"3–6 months","Just looking":"Just looking"},
+ day:"Preferred day",dayHint:"optional",time:"Preferred time",
+ tm:{"Morning (9–12)":"Morning (9–12)","Afternoon (12–5)":"Afternoon (12–5)","Evening (5–8)":"Evening (5–8)","Flexible":"Flexible"},
+ comments:"Anything I should know?",commentsHint:"optional",
+ consent:"I agree that Lizmaria Ortega, Realtor® with Interinvestments Realty, may contact me by phone, text or email about this inquiry. Message and data rates may apply.",
+ marketing:"Optional: also send me occasional new listings and market updates. I can opt out at any time.",
+ notConfirmed:"Submitting this form requests a showing. Your appointment is not confirmed until I contact you to set a time.",
+ send:"Send showing request",sending:"Sending…",
+ okTitle:"Request received — thank you!",okBody:"I have your request for {t}. Your showing is not confirmed yet — I’ll contact you by {m} to confirm a day and time.",okRef:"Reference",
+ unavailTitle:"This property is {s}",inactiveTitle:"This property is no longer available",
+ unavailBody:"I can help you find something similar — same area, budget and size. Just tell me what you need.",
+ similarBtn:"Help me find a similar property",similarTitle:"Help me find a similar property",
+ budget:"Budget",budgetHint:"optional",area:"Preferred area",areaHint:"optional",
+ sendSimilar:"Send my request",okSimilarTitle:"Got it — thank you!",okSimilarBody:"I’ll look for similar properties and contact you by {m}.",
+ notFound:"Property not found",notFoundBody:"This link may be incomplete. Please contact me and I’ll send you the right one.",
+ netErr:"Your request could not be sent. Please check your connection and try again — or call or text (305) 505-8292.",
+ needContact:"Please enter a phone number or an email.",needName:"Please enter your name.",needMethod:"Please choose how you would like to be contacted.",needTimeline:"Please choose your moving timeline.",needConsent:"Please check the box so I can contact you about this request.",badPhone:"Please enter a 10-digit phone number.",badEmail:"Please check your email address.",needEmailForEmail:"Please add your email, or choose another contact method.",needPhoneForPhone:"Please add your phone number, or choose email.",
+ smsBody:"Hi Lizmaria, I’m interested in {t}"},
+es:{loading:"Cargando propiedad…",disclaimer:"La información proviene de la fuente del listado y se considera confiable, pero no está garantizada. Precios, disponibilidad y condiciones pueden cambiar sin aviso. Igualdad de oportunidades en la vivienda.",
+ forSale:"En venta",forRent:"En alquiler",mo:"/mes",beds:"Cuartos",baths:"Baños",sqft:"Pies²",photos:"fotos",noPhotos:"Fotos próximamente",
+ Available:"Disponible",Pending:"Pendiente",Rented:"Alquilada",Sold:"Vendida",
+ about:"Sobre esta propiedad",reqs:"Requisitos para mudarse",fees:"Cargos",attr:"Información del listado",
+ request:"Solicitar una visita",call:"Llamar",text:"Texto",email:"Correo",
+ agentLine:"Realtor® bilingüe · Español & English",
+ formTitle:"Solicitar una visita",formIntro:"Cuénteme un poco sobre usted y cuándo le gustaría verla. Toma menos de un minuto.",
+ name:"Nombre completo",phone:"Teléfono",emailF:"Correo electrónico",phoneOrEmail:"Teléfono o correo — al menos uno",
+ method:"¿Cómo prefiere que le contacte?",Text:"Texto",Call:"Llamada",Email:"Correo",WhatsApp:"WhatsApp",
+ timeline:"¿Cuándo planea mudarse?",choose:"Elija…",
+ tl:{"As soon as possible":"Lo antes posible","Within 30 days":"En los próximos 30 días","1–3 months":"En 1–3 meses","3–6 months":"En 3–6 meses","Just looking":"Solo estoy mirando"},
+ day:"Día preferido",dayHint:"opcional",time:"Horario preferido",
+ tm:{"Morning (9–12)":"Mañana (9–12)","Afternoon (12–5)":"Tarde (12–5)","Evening (5–8)":"Noche (5–8)","Flexible":"Flexible"},
+ comments:"¿Algo que deba saber?",commentsHint:"opcional",
+ consent:"Acepto que Lizmaria Ortega, Realtor® de Interinvestments Realty, me contacte por teléfono, mensaje de texto o correo electrónico sobre esta solicitud. Pueden aplicarse cargos por mensajes y datos.",
+ marketing:"Opcional: también envíenme nuevas propiedades y noticias del mercado de vez en cuando. Puedo darme de baja en cualquier momento.",
+ notConfirmed:"Al enviar este formulario solicita una visita. Su cita no está confirmada hasta que yo le contacte para acordar la hora.",
+ send:"Enviar solicitud de visita",sending:"Enviando…",
+ okTitle:"¡Solicitud recibida, gracias!",okBody:"Recibí su solicitud para {t}. Su visita aún no está confirmada — le contactaré por {m} para confirmar día y hora.",okRef:"Referencia",
+ unavailTitle:"Esta propiedad está {s}",inactiveTitle:"Esta propiedad ya no está disponible",
+ unavailBody:"Puedo ayudarle a encontrar algo similar — misma zona, presupuesto y tamaño. Solo dígame lo que necesita.",
+ similarBtn:"Ayúdenme a encontrar una propiedad similar",similarTitle:"Ayúdenme a encontrar una propiedad similar",
+ budget:"Presupuesto",budgetHint:"opcional",area:"Zona preferida",areaHint:"opcional",
+ sendSimilar:"Enviar mi solicitud",okSimilarTitle:"¡Recibido, gracias!",okSimilarBody:"Buscaré propiedades similares y le contactaré por {m}.",
+ notFound:"Propiedad no encontrada",notFoundBody:"Puede que el enlace esté incompleto. Contácteme y le envío el correcto.",
+ netErr:"No se pudo enviar su solicitud. Revise su conexión e intente de nuevo — o llame o escriba al (305) 505-8292.",
+ needContact:"Escriba un teléfono o un correo.",needName:"Escriba su nombre.",needMethod:"Elija cómo prefiere que le contacte.",needTimeline:"Elija cuándo planea mudarse.",needConsent:"Marque la casilla para que pueda contactarle sobre esta solicitud.",badPhone:"Escriba un teléfono de 10 dígitos.",badEmail:"Revise su correo electrónico.",needEmailForEmail:"Agregue su correo o elija otro método.",needPhoneForPhone:"Agregue su teléfono o elija correo.",
+ smsBody:"Hola Lizmaria, me interesa {t}"}
+};
+const SERVER_ES={"Please reload the page and try again.":"Recargue la página e intente de nuevo.","Please take a moment to review the form, then submit again.":"Revise el formulario un momento y envíelo de nuevo.","This property is no longer available for showings.":"Esta propiedad ya no está disponible para visitas."};
+let lang=/^es/i.test(navigator.language||"")?"es":"en";
+try{const s=localStorage.getItem("lo-lang");if(s==="es"||s==="en")lang=s}catch(e){}
+if(qs.get("lang")==="es"||qs.get("lang")==="en")lang=qs.get("lang");
+const t=k=>T[lang][k]??T.en[k]??k;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=n=>"$"+Number(n||0).toLocaleString("en-US");
+const img=(id,w)=>`https://lh3.googleusercontent.com/d/${encodeURIComponent(id)}=w${w||1600}`;
+const imgFallback=(id,w)=>`https://drive.google.com/thumbnail?id=${encodeURIComponent(id)}&sz=w${w||1600}`;
+
+let data=null, tok="", view="details", done=null, formState={};
+const app=document.getElementById("app"), sticky=document.getElementById("sticky");
+
+function setLang(l){lang=l;try{localStorage.setItem("lo-lang",l)}catch(e){}document.documentElement.lang=l;
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===l)));
+  document.querySelectorAll("[data-t]").forEach(el=>el.textContent=t(el.dataset.t));
+  saveFormState();render();}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+
+function saveFormState(){const f=document.getElementById("inq");if(!f)return;formState={};[...f.elements].forEach(el=>{if(!el.name)return;if(el.type==="radio"){if(el.checked)formState[el.name]=el.value}else if(el.type==="checkbox")formState[el.name]=el.checked;else formState[el.name]=el.value});}
+function restoreFormState(){const f=document.getElementById("inq");if(!f)return;[...f.elements].forEach(el=>{if(!el.name||!(el.name in formState))return;if(el.type==="radio")el.checked=formState[el.name]===el.value;else if(el.type==="checkbox")el.checked=!!formState[el.name];else el.value=formState[el.name]});}
+
+function statusBadge(p){if(!p.active)return`<span class="badge bad">${esc(t("inactiveTitle"))}</span>`;const c=p.status==="Available"?"":p.status==="Pending"?"warn":"bad";return`<span class="badge ${c}">${esc(t(p.status))}</span>`}
+function available(p){return p.active&&p.status==="Available"}
+
+function agentCard(){
+  const sms=`sms:${TEL}?&body=${encodeURIComponent(t("smsBody").replace("{t}",data&&data.title?data.title:""))}`;
+  return `<div class="card"><div class="agent"><div class="avatar" aria-hidden="true">LO</div><div><b>Lizmaria Ortega, Realtor®</b><span class="small">Interinvestments Realty<br>${esc(t("agentLine"))}</span></div></div>
+  <div class="btns"><a class="btn" href="tel:${TEL}">${esc(t("call"))} ${PHONE}</a><a class="btn" href="${sms}">${esc(t("text"))}</a><a class="btn" href="mailto:${EMAIL}?subject=${encodeURIComponent(data&&data.title?data.title:"Property")}">${esc(t("email"))}</a></div></div>`;
+}
+
+function formHTML(kind){
+  const tlOpts=Object.keys(T.en.tl).map(k=>`<option value="${esc(k)}">${esc(t("tl")[k])}</option>`).join("");
+  const tmOpts=Object.keys(T.en.tm).map(k=>`<option value="${esc(k)}"${k==="Flexible"?" selected":""}>${esc(t("tm")[k])}</option>`).join("");
+  const minDate=new Date().toLocaleDateString("en-CA");
+  const showing=kind==="showing";
+  return `<div class="card" id="formCard"><h2>${esc(t(showing?"formTitle":"similarTitle"))}</h2><p class="small" style="margin:0 0 12px">${esc(showing?t("formIntro"):t("unavailBody"))}</p>
+  <form id="inq" novalidate data-kind="${kind}">
+    <label class="f">${esc(t("name"))}<input type="text" name="name" autocomplete="name" maxlength="80" required></label>
+    <p class="small" style="margin:-6px 0 -6px">${esc(t("phoneOrEmail"))}</p>
+    <div class="row2"><label class="f">${esc(t("phone"))}<input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20"></label>
+    <label class="f">${esc(t("emailF"))}<input type="email" name="email" autocomplete="email" maxlength="120"></label></div>
+    <fieldset style="border:0;padding:0;margin:0"><legend class="f" style="font-weight:600;font-size:.9rem;margin-bottom:6px">${esc(t("method"))}</legend>
+      <div class="chips">${["Text","Call","Email","WhatsApp"].map(m=>`<label class="chip"><input type="radio" name="method" value="${m}"><span>${esc(t(m))}</span></label>`).join("")}</div></fieldset>
+    <label class="f">${esc(t("timeline"))}<select name="timeline" required><option value="">${esc(t("choose"))}</option>${tlOpts}</select></label>
+    ${showing?`<div class="row2"><label class="f">${esc(t("day"))} <small>${esc(t("dayHint"))}</small><input type="date" name="day" min="${minDate}"></label>
+      <label class="f">${esc(t("time"))}<select name="time">${tmOpts}</select></label></div>`:
+      `<div class="row2"><label class="f">${esc(t("budget"))} <small>${esc(t("budgetHint"))}</small><input type="text" name="budget" maxlength="60" placeholder="${data&&data.listingType==="Rent"?"$2,500/mo":"$500,000"}"></label>
+      <label class="f">${esc(t("area"))} <small>${esc(t("areaHint"))}</small><input type="text" name="area" maxlength="80" value="${esc(data&&data.area||"")}"></label></div>`}
+    <label class="f">${esc(t("comments"))} <small>${esc(t("commentsHint"))}</small><textarea name="comments" maxlength="500"></textarea></label>
+    <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <label class="check"><input type="checkbox" name="consent" required><span>${esc(t("consent"))}</span></label>
+    <label class="check"><input type="checkbox" name="marketing"><span>${esc(t("marketing"))}</span></label>
+    ${showing?`<div class="note">${esc(t("notConfirmed"))}</div>`:""}
+    <div id="ferr" role="alert"></div>
+    <button class="btn primary block" type="submit" id="sendBtn">${esc(t(showing?"send":"sendSimilar"))}</button>
+  </form></div>`;
+}
+
+function render(){
+  if(!data){return}
+  const p=data;
+  sticky.hidden=true;
+  if(p.notFound){app.innerHTML=`<div class="center"><h1>${esc(t("notFound"))}</h1><p>${esc(t("notFoundBody"))}</p></div><div style="padding:0 16px;max-width:560px;margin:0 auto">${agentCard()}</div>`;return}
+  document.title=`${p.title} · Lizmaria Ortega, Realtor®`;
+  if(done){
+    const m=t(done.method);
+    app.innerHTML=`<div class="content" style="grid-template-columns:1fr"><div class="okbox" role="status"><h2>${esc(t(done.kind==="showing"?"okTitle":"okSimilarTitle"))}</h2><p>${esc(t(done.kind==="showing"?"okBody":"okSimilarBody").replace("{t}",p.title).replace("{m}",m.toLowerCase()))}</p><p class="small">${esc(t("okRef"))}: ${esc(done.id)}</p></div>${agentCard()}</div>`;
+    window.scrollTo(0,0);return;
+  }
+  const photos=p.photos||[];
+  const gal=photos.length?`<div class="gallery"><div class="track" id="track">${photos.map((id,i)=>`<img src="${img(id,1600)}" data-fb="${imgFallback(id,1600)}" alt="${esc(p.title)} — ${i+1}" loading="${i?"lazy":"eager"}" data-i="${i}">`).join("")}</div>${photos.length>1?`<button class="navb prev" type="button" aria-label="Previous photo">‹</button><button class="navb next" type="button" aria-label="Next photo">›</button>`:""}<span class="count" id="count">1 / ${photos.length}</span></div>`:`<div class="gallery"><div class="nophoto">${esc(t("noPhotos"))}</div></div>`;
+  const rent=p.listingType==="Rent";
+  const desc=lang==="es"&&p.descriptionEs?p.descriptionEs:p.description;
+  const facts=[[p.beds,t("beds")],[p.baths,t("baths")],[p.sqft?Number(p.sqft).toLocaleString("en-US"):"",t("sqft")]].filter(f=>f[0]).map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join("");
+  const avail=available(p);
+  let side="";
+  if(avail){side=view==="form"?formHTML("showing"):`<div class="card"><h2>${esc(t("request"))}</h2><p class="small" style="margin:0 0 12px">${esc(t("notConfirmed"))}</p><button class="btn primary block" type="button" data-act="form">${esc(t("request"))}</button></div>`}
+  else{const title=p.active?t("unavailTitle").replace("{s}",t(p.status).toLowerCase()):t("inactiveTitle");
+    side=`<div class="card"><h2>${esc(title)}</h2><p style="margin:0 0 12px">${esc(t("unavailBody"))}</p>${view==="form"?"":`<button class="btn primary block" type="button" data-act="form">${esc(t("similarBtn"))}</button>`}</div>${view==="form"?formHTML("similar"):""}`}
+  app.innerHTML=`${gal}<div class="content"><div style="display:grid;gap:18px;min-width:0">
+    <div><div style="display:flex;gap:6px;flex-wrap:wrap">${statusBadge(p)}<span class="badge">${esc(t(rent?"forRent":"forSale"))}</span></div>
+      <div class="price">${money(p.price)}${rent?`<small>${esc(t("mo"))}</small>`:""}</div>
+      <h1>${esc(p.title)}</h1><p class="where">${esc([p.address,p.area].filter(Boolean).join(" · "))}</p>
+      ${facts?`<div class="facts">${facts}</div>`:""}</div>
+    ${desc?`<div class="card"><h2>${esc(t("about"))}</h2><p class="prose">${esc(desc)}</p></div>`:""}
+    ${p.requirements?`<div class="card"><h2>${esc(t("reqs"))}</h2><p class="prose">${esc(p.requirements)}</p></div>`:""}
+    ${p.fees?`<div class="card"><h2>${esc(t("fees"))}</h2><p class="prose">${esc(p.fees)}</p></div>`:""}
+    ${p.attribution?`<p class="small">${esc(t("attr"))}: ${esc(p.attribution)}</p>`:""}
+  </div><div class="side" style="display:grid;gap:18px">${side}${agentCard()}</div></div>`;
+  if(view!=="form"){sticky.hidden=false;sticky.innerHTML=`<a class="btn" href="tel:${TEL}">${esc(t("call"))}</a><button class="btn primary" type="button" data-act="form" style="flex:2">${esc(avail?t("request"):t("similarBtn"))}</button>`}
+  wire();
+}
+
+function wire(){
+  document.querySelectorAll("[data-act=form]").forEach(b=>b.onclick=()=>{view="form";render();const fc=document.getElementById("formCard");if(fc){fc.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>{const n=document.querySelector("#inq [name=name]");n&&n.focus({preventScroll:true})},350)}});
+  const tr=document.getElementById("track");
+  if(tr){
+    tr.querySelectorAll("img").forEach(im=>{im.onerror=()=>{if(im.dataset.fb&&im.src!==im.dataset.fb){im.src=im.dataset.fb}};im.onclick=()=>openLb(im.src)});
+    const cnt=document.getElementById("count");const n=tr.children.length;
+    tr.addEventListener("scroll",()=>{const i=Math.round(tr.scrollLeft/tr.clientWidth);if(cnt)cnt.textContent=`${Math.min(i+1,n)} / ${n}`},{passive:true});
+    const pv=document.querySelector(".navb.prev"),nx=document.querySelector(".navb.next");
+    if(pv)pv.onclick=()=>tr.scrollBy({left:-tr.clientWidth,behavior:"smooth"});
+    if(nx)nx.onclick=()=>tr.scrollBy({left:tr.clientWidth,behavior:"smooth"});
+  }
+  const f=document.getElementById("inq");
+  if(f){restoreFormState();f.onsubmit=submit}
+}
+function openLb(src){const lb=document.getElementById("lb");lb.innerHTML=`<div class="lightbox" role="dialog" aria-modal="true"><img src="${esc(src)}" alt=""><button type="button">✕</button></div>`;const c=()=>lb.innerHTML="";lb.querySelector("button").onclick=c;lb.querySelector(".lightbox").onclick=e=>{if(e.target.tagName!=="IMG")c()};}
+
+function fail(msg){const e=document.getElementById("ferr");e.innerHTML=`<div class="err">${esc(msg)}</div>`;e.scrollIntoView({behavior:"smooth",block:"center"})}
+async function submit(ev){
+  ev.preventDefault();
+  const f=ev.target, kind=f.dataset.kind, v=k=>(f.elements[k]&&f.elements[k].value||"").trim();
+  const method=(f.querySelector("input[name=method]:checked")||{}).value||"";
+  const phone=v("phone"), email=v("email"), dig=phone.replace(/\D/g,"").replace(/^1(?=\d{10}$)/,"");
+  document.getElementById("ferr").innerHTML="";
+  if(v("name").length<2)return fail(t("needName"));
+  if(!phone&&!email)return fail(t("needContact"));
+  if(phone&&dig.length!==10)return fail(t("badPhone"));
+  if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return fail(t("badEmail"));
+  if(!method)return fail(t("needMethod"));
+  if(method==="Email"&&!email)return fail(t("needEmailForEmail"));
+  if(method!=="Email"&&!dig)return fail(t("needPhoneForPhone"));
+  if(!v("timeline"))return fail(t("needTimeline"));
+  if(!f.elements.consent.checked)return fail(t("needConsent"));
+  const btn=document.getElementById("sendBtn");btn.disabled=true;btn.textContent=t("sending");
+  const body={action:"inquiry",kind,propertyId:data.id,t:tok,lang,name:v("name"),phone,email,method,timeline:v("timeline"),
+    day:kind==="showing"?v("day"):"",time:kind==="showing"?v("time"):"",budget:kind==="similar"?v("budget"):"",area:kind==="similar"?v("area"):"",
+    comments:v("comments"),website:v("website"),consent:f.elements.consent.checked===true,marketing:f.elements.marketing.checked===true,
+    src,referrer:document.referrer||"",pageUrl:location.href.slice(0,300),...utm};
+  try{
+    const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});
+    const j=await r.json();
+    if(j&&j.ok&&j.id){done={kind,id:j.id,method};render();return}
+    btn.disabled=false;btn.textContent=t(kind==="showing"?"send":"sendSimilar");
+    if(j&&j.error==="unavailable"){await load();return}
+    if(j&&j.error==="expired"){await refreshToken()}
+    fail(j&&j.message?(lang==="es"&&SERVER_ES[j.message]?SERVER_ES[j.message]:j.message):t("netErr"));
+  }catch(e){btn.disabled=false;btn.textContent=t(kind==="showing"?"send":"sendSimilar");fail(t("netErr"))}
+}
+
+async function fetchProp(){const r=await fetch(`${API}?action=property&id=${encodeURIComponent(pid)}`);return r.json()}
+async function refreshToken(){try{const j=await fetchProp();if(j&&j.t)tok=j.t}catch(e){}}
+async function load(){
+  if(!pid){data={notFound:true};render();return}
+  try{
+    const j=await fetchProp();
+    tok=j.t||"";
+    if(!j.ok){data={notFound:true}}else{data=j.property}
+    saveFormState();render();
+  }catch(e){app.innerHTML=`<div class="center"><p>${esc(t("netErr"))}</p><p><button class="btn" type="button" onclick="location.reload()">↻</button></p></div>`}
+}
+setLang(lang);
+load();
+})();
+</script>
+</body>
+</html>
