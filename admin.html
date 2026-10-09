@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>My Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#f3f7f7;--surface:#fff;--surface2:#e7f0f1;--fg:#14262a;--muted:#5b7177;--line:#cfdfe1;--accent:#056d7e;--deep:#2a545c;--soft:#d5ebee;--warn:#9a6a00;--warn-soft:#f6ecd0;--bad:#b4361f;--bad-soft:#f8e2dc;--ok:#2f7a45;--ok-soft:#dcefe1;--display:"Fraunces",Georgia,serif;--body:"Public Sans",system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--body)}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff;padding:12px 16px;padding-top:calc(12px + env(safe-area-inset-top,0px))}
+.hin{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:600;font-size:1.3rem;margin:0}
+h1 small{display:block;font-family:var(--body);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8;font-weight:500}
+main{max-width:1000px;margin:0 auto;padding:16px 16px 80px;display:grid;gap:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:9px 14px;font-weight:700;cursor:pointer;text-decoration:none;color:var(--fg);white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.light{background:#fff;color:var(--deep);border-color:#fff}
+.btn.small{padding:6px 10px;font-size:.84rem}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.prop{display:grid;grid-template-columns:96px 1fr;gap:12px}
+.thumb{width:96px;height:72px;border-radius:8px;object-fit:cover;background:var(--surface2)}
+.prop h3{margin:0;font-size:1rem;overflow-wrap:anywhere}
+.meta{color:var(--muted);font-size:.85rem}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.acts select{width:auto;padding:6px 8px}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;background:var(--surface2);color:var(--muted)}
+.pill.on{background:var(--ok-soft);color:var(--ok)}.pill.off{background:var(--bad-soft);color:var(--bad)}.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.linkrow{grid-column:1/-1;display:grid;gap:6px;background:var(--surface2);border-radius:8px;padding:8px 10px;font-size:.82rem}
+.linkrow code{overflow-wrap:anywhere;font-size:.8rem}
+.linkrow div{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+label{display:grid;gap:4px;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+label small{text-transform:none;letter-spacing:0;font-weight:400}
+input[type=text],input[type=number],input[type=password],select,textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:16px}
+textarea{min-height:90px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.full{grid-column:1/-1}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.grid3{grid-template-columns:repeat(3,1fr)}}
+fieldset{border:1px solid var(--line);border-radius:12px;padding:12px;margin:0;display:grid;gap:12px;min-width:0}
+legend{font-weight:700;color:var(--deep);padding:0 6px}
+.chk{display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:0;font-size:.92rem;color:var(--fg);font-weight:600}
+.chk input{width:18px;height:18px;accent-color:var(--accent)}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.ph{position:relative;border-radius:8px;overflow:hidden;background:var(--surface2);aspect-ratio:4/3}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tools{position:absolute;inset:auto 0 0 0;display:flex;justify-content:space-between;background:rgba(0,0,0,.55)}
+.ph .tools button{background:none;border:0;color:#fff;padding:4px 8px;cursor:pointer;font-weight:700}
+.ph .cover{position:absolute;top:4px;left:4px;background:var(--accent);color:#fff;font-size:.68rem;font-weight:700;padding:1px 6px;border-radius:999px}
+.drop{border:2px dashed var(--line);border-radius:10px;padding:14px;text-align:center;color:var(--muted);cursor:pointer}
+.err{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:10px 12px;font-weight:600}
+.okm{background:var(--ok-soft);color:var(--ok);border-radius:8px;padding:10px 12px;font-weight:600}
+.bar{position:sticky;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 0;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--fg);color:#fff;padding:10px 16px;border-radius:8px;z-index:60;font-weight:600;max-width:calc(100% - 32px)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.toolbar input{flex:1 1 200px}
+.empty{color:var(--muted);text-align:center;padding:30px 10px}
+.center{max-width:420px;margin:40px auto;display:grid;gap:12px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header><div class="hin"><h1><small>Lizmaria Ortega · Interinvestments Realty</small>My Properties</h1>
+<div class="toolbar" id="hdrActs" hidden><button class="btn light" type="button" id="addBtn">+ Add property</button><button class="btn small" type="button" id="outBtn" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Sign out</button></div></div></header>
+<main id="app"><p class="empty">Loading…</p></main>
+<div id="toastRoot"></div>
+<script src="config.js"></script>
+<script>
+(function(){
+const API=window.LO_API||"";
+const BASE=location.origin+location.pathname.replace(/admin\.html$/,"").replace(/\/?$/,"/");
+const STATUSES=["Available","Pending","Rented","Sold"];
+const AREAS=["Kendall","Pinecrest","Palmetto Bay","Coral Gables","Shenandoah","Coral Gate","Homestead","Cutler Bay","South Miami","Doral","Westchester","Miami"];
+const app=document.getElementById("app");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=n=>"$"+Number(n||0).toLocaleString("en-US");
+const thumb=id=>`https://lh3.googleusercontent.com/d/${encodeURIComponent(id)}=w400`;
+const link=id=>`${BASE}?p=${id}`;
+const fbLink=id=>`${BASE}?p=${id}&src=fbm`;
+let token="", props=[], counts={}, editing=null, dirty=false, uploading=0, filter="";
+try{token=sessionStorage.getItem("lo-admin")||""}catch(e){}
+
+function toast(m){const r=document.getElementById("toastRoot");r.innerHTML=`<div class="toast" role="status">${esc(m)}</div>`;clearTimeout(toast.t);toast.t=setTimeout(()=>r.innerHTML="",2600)}
+async function call(body){
+  const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({...body,token})});
+  const j=await r.json();
+  if(!j.ok&&j.error==="auth"){token="";try{sessionStorage.removeItem("lo-admin")}catch(e){}showLogin("Your session ended. Please sign in again.");throw new Error("auth")}
+  return j;
+}
+async function copy(text,label){try{await navigator.clipboard.writeText(text);toast(label+" copied")}catch(e){const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast(label+" copied")}catch(x){prompt("Copy this link:",text)}ta.remove()}}
+
+/* ---------- sign in ---------- */
+async function showLogin(msg){
+  document.getElementById("hdrActs").hidden=true;
+  let st={};try{st=await call({action:"admin_status"})}catch(e){if(e.message!=="auth"){app.innerHTML=`<div class="center"><div class="err">Can't reach the server. Check your connection and reload.</div></div>`;return}}
+  if(!st.hasPasscode){
+    app.innerHTML=st.setupOpen?`<form class="center card" id="setupF"><h2 style="margin:0;font-family:var(--display)">Create your passcode</h2><p class="meta" style="margin:0">This passcode protects your property editor. Use at least 8 characters and keep it private. You'll use it on your phone and computer.</p>
+      <label>New passcode<input type="password" id="pc1" autocomplete="new-password" minlength="8" required></label><label>Repeat passcode<input type="password" id="pc2" autocomplete="new-password" required></label><div id="lerr"></div><button class="btn primary" type="submit">Save passcode</button></form>`
+      :`<div class="center card"><h2 style="margin:0;font-family:var(--display)">Setup is closed</h2><p class="meta">No passcode has been set yet. Ask Claude to open passcode setup (or run <b>openPasscodeSetup</b> in the Apps Script project), then reload this page.</p></div>`;
+    const f=document.getElementById("setupF");
+    if(f)f.onsubmit=async e=>{e.preventDefault();const a=document.getElementById("pc1").value,b=document.getElementById("pc2").value;if(a.length<8)return lerr("Use at least 8 characters.");if(a!==b)return lerr("The two passcodes don't match.");
+      const j=await call({action:"admin_setup",passcode:a});if(!j.ok)return lerr(j.message||"Couldn't save.");setToken(j.token);loadList()};
+    return;
+  }
+  app.innerHTML=`<form class="center card" id="loginF"><h2 style="margin:0;font-family:var(--display)">Sign in</h2>${msg?`<p class="meta" style="margin:0">${esc(msg)}</p>`:""}<label>Passcode<input type="password" id="pc" autocomplete="current-password" required></label><div id="lerr"></div><button class="btn primary" type="submit" id="lbtn">Sign in</button></form>`;
+  document.getElementById("loginF").onsubmit=async e=>{e.preventDefault();const b=document.getElementById("lbtn");b.disabled=true;
+    try{const j=await call({action:"admin_login",passcode:document.getElementById("pc").value});if(!j.ok){b.disabled=false;return lerr(j.message||"Couldn't sign in.")}setToken(j.token);loadList()}catch(x){b.disabled=false;lerr("Can't reach the server. Try again.")}};
+}
+function lerr(m){document.getElementById("lerr").innerHTML=`<div class="err">${esc(m)}</div>`}
+function setToken(t){token=t;try{sessionStorage.setItem("lo-admin",t)}catch(e){}}
+document.getElementById("outBtn").onclick=()=>{token="";try{sessionStorage.removeItem("lo-admin")}catch(e){}showLogin("Signed out.")};
+
+/* ---------- list ---------- */
+async function loadList(){
+  document.getElementById("hdrActs").hidden=false;
+  app.innerHTML=`<p class="empty">Loading your properties…</p>`;
+  try{const j=await call({action:"admin_list"});if(!j.ok){app.innerHTML=`<div class="err">${esc(j.message||"Couldn't load properties.")}</div>`;return}props=j.properties||[];counts=j.inquiries||{};renderList()}
+  catch(e){if(e.message!=="auth")app.innerHTML=`<div class="err">Can't reach the server. Check your connection and reload.</div>`}
+}
+function renderList(){
+  editing=null;dirty=false;
+  const q=filter.toLowerCase();
+  const list=props.filter(p=>!q||[p.title,p.area,p.address,p.id].join(" ").toLowerCase().includes(q));
+  app.innerHTML=`<div class="toolbar"><input type="text" id="flt" placeholder="Search by title, area, address or ID" value="${esc(filter)}" aria-label="Search properties"><span class="meta">${props.filter(p=>p.active).length} published · ${props.length} total</span></div>
+  ${list.length?list.map(cardHTML).join(""):`<div class="card empty">${props.length?"No properties match.":"No properties yet. Tap “+ Add property” to create your first page."}</div>`}`;
+  const f=document.getElementById("flt");f.oninput=()=>{filter=f.value;const pos=f.selectionStart;renderList();const n=document.getElementById("flt");n.focus();n.setSelectionRange(pos,pos)};
+  app.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>act(b.dataset.a,b.dataset.id));
+  app.querySelectorAll("select[data-status]").forEach(s=>s.onchange=()=>setField(s.dataset.status,{status:s.value}));
+}
+function cardHTML(p){
+  const c=counts[p.id];
+  const st=p.status==="Available"?"on":p.status==="Pending"?"warn":"off";
+  const img=p.photos&&p.photos[0]?`<img class="thumb" src="${thumb(p.photos[0].id)}" alt="">`:`<div class="thumb"></div>`;
+  return `<div class="card prop">${img}<div style="min-width:0"><h3>${esc(p.title)}</h3>
+    <div class="meta">${money(p.price)}${p.listingType==="Rent"?"/mo":""} · ${esc(p.listingType==="Rent"?"Rental":"Sale")} · ${esc(p.beds||"–")} bd / ${esc(p.baths||"–")} ba · ${esc(p.area||"")}</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px"><span class="pill ${p.active?"on":"off"}">${p.active?"Published":"Deactivated"}</span><span class="pill ${st}">${esc(p.status)}</span><span class="pill">ID ${esc(p.id)}</span>${c?`<span class="pill">${c.total} inquir${c.total===1?"y":"ies"}</span>`:""}</div></div>
+    ${p.active?`<div class="linkrow"><div><span><b>Page link</b><br><code>${esc(link(p.id))}</code></span><button class="btn small" type="button" data-a="copy" data-id="${p.id}">Copy link</button></div>
+      <div><span><b>Marketplace link</b> (tracks Facebook Marketplace)<br><code>${esc(fbLink(p.id))}</code></span><button class="btn small primary" type="button" data-a="copyfb" data-id="${p.id}">Copy Marketplace link</button></div></div>`
+      :`<div class="linkrow"><span>This page is deactivated. Its link still works but shows “no longer available” with a “find a similar property” form.</span></div>`}
+    <div class="acts"><button class="btn small" type="button" data-a="edit" data-id="${p.id}">Edit</button>
+      <label class="chk" style="font-size:.84rem">Status <select data-status="${p.id}" aria-label="Availability status">${STATUSES.map(s=>`<option${s===p.status?" selected":""}>${s}</option>`).join("")}</select></label>
+      <button class="btn small" type="button" data-a="dup" data-id="${p.id}">Duplicate</button>
+      <button class="btn small ${p.active?"danger":""}" type="button" data-a="${p.active?"deact":"pub"}" data-id="${p.id}">${p.active?"Deactivate":"Publish"}</button>
+      <a class="btn small" href="${esc(link(p.id))}" target="_blank" rel="noopener">Open page ↗</a></div></div>`;
+}
+async function setField(id,patch){
+  try{const j=await call({action:"admin_set",id,...patch});if(!j.ok){toast(j.message||"Couldn't update");return loadList()}
+    const i=props.findIndex(p=>p.id===id);props[i]=j.property;renderList();toast(patch.status?`Marked ${patch.status}`:patch.active?"Published":"Deactivated")}
+  catch(e){if(e.message!=="auth")toast("Couldn't reach the server")}
+}
+async function act(a,id){
+  const p=props.find(x=>x.id===id);
+  if(a==="copy")return copy(link(id),"Page link");
+  if(a==="copyfb")return copy(fbLink(id),"Marketplace link");
+  if(a==="edit")return openEditor(p);
+  if(a==="pub")return setField(id,{active:true});
+  if(a==="deact"){if(confirm(`Deactivate “${p.title}”? Its page will show “no longer available”. You can publish it again anytime.`))setField(id,{active:false});return}
+  if(a==="dup"){try{const j=await call({action:"admin_duplicate",id});if(!j.ok)return toast(j.message||"Couldn't duplicate");props.unshift(j.property);toast("Copy created (deactivated until you publish it)");openEditor(j.property)}catch(e){}}
+}
+document.getElementById("addBtn").onclick=()=>{if(editing&&dirty&&!confirm("Discard unsaved changes?"))return;openEditor(null)};
+
+/* ---------- editor ---------- */
+function openEditor(p){
+  editing=p?JSON.parse(JSON.stringify(p)):{listingType:"Sale",status:"Available",active:true,showAddress:false,photos:[]};
+  dirty=false;const x=editing;
+  app.innerHTML=`<form id="ed" class="card" style="display:grid;gap:14px" autocomplete="off">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="margin:0;font-family:var(--display)">${p?"Edit property":"Add property"}</h2>${p?`<span class="pill">ID ${esc(p.id)} · permanent</span>`:""}</div>
+    <fieldset><legend>Basics</legend><div class="grid">
+      <label class="full">Property title<input type="text" name="title" maxlength="120" required value="${esc(x.title)}" placeholder="e.g. Updated 3/2 pool home in Kendall"></label>
+      <label>Sale or rental<select name="listingType"><option value="Sale"${x.listingType==="Sale"?" selected":""}>For sale</option><option value="Rent"${x.listingType==="Rent"?" selected":""}>For rent</option></select></label>
+      <label>Price <small id="priceHint">${x.listingType==="Rent"?"per month":"asking price"}</small><input type="number" name="price" min="0" step="1" inputmode="numeric" required value="${esc(x.price||"")}"></label>
+      <label>Area<input type="text" name="area" list="areas" maxlength="60" value="${esc(x.area)}" placeholder="Kendall"><datalist id="areas">${AREAS.map(a=>`<option>${a}</option>`).join("")}</datalist></label>
+      <label>Availability<select name="status">${STATUSES.map(s=>`<option${s===x.status?" selected":""}>${s}</option>`).join("")}</select></label>
+      <label class="full">Address <small>optional · only shown if you check the box</small><input type="text" name="address" maxlength="160" value="${esc(x.address)}"></label>
+      <label class="chk full"><input type="checkbox" name="showAddress"${x.showAddress?" checked":""}> Show the address on the public page</label>
+    </div><div class="grid3">
+      <label>Beds<input type="text" name="beds" maxlength="6" inputmode="decimal" value="${esc(x.beds)}"></label>
+      <label>Baths<input type="text" name="baths" maxlength="6" inputmode="decimal" value="${esc(x.baths)}"></label>
+      <label>Sq ft <small>optional</small><input type="text" name="sqft" maxlength="10" inputmode="numeric" value="${esc(x.sqft)}"></label>
+    </div></fieldset>
+    <fieldset><legend>Photos</legend>
+      <p class="meta" style="margin:0">The first photo is the cover. Use ← → to reorder. Photos are resized automatically and become publicly viewable once added.</p>
+      <div class="photos" id="phs"></div>
+      <label class="drop" for="phIn">Tap to add photos<input type="file" id="phIn" accept="image/*" multiple hidden></label>
+      <div id="upMsg" class="meta"></div>
+    </fieldset>
+    <fieldset><legend>Description</legend>
+      <label>Description (English)<textarea name="description" maxlength="4000">${esc(x.description)}</textarea></label>
+      <label>Descripción en español <small>optional · shown when visitors pick ES</small><textarea name="descriptionEs" maxlength="4000">${esc(x.descriptionEs)}</textarea></label>
+    </fieldset>
+    <fieldset><legend>Move-in requirements &amp; fees <small style="font-weight:400;color:var(--muted)">when applicable</small></legend>
+      <label>Move-in requirements<textarea name="requirements" maxlength="2000" placeholder="e.g. First, last and security. Income 3x rent. Credit 650+.">${esc(x.requirements)}</textarea></label>
+      <label>Fees<textarea name="fees" maxlength="1000" placeholder="e.g. $75 application fee per adult. HOA approval $150.">${esc(x.fees)}</textarea></label>
+    </fieldset>
+    <fieldset><legend>Listing attribution &amp; notes</legend>
+      <label>Listing attribution <small>optional · shown on the page, e.g. “Listing courtesy of …”</small><input type="text" name="attribution" maxlength="300" value="${esc(x.attribution)}"></label>
+      <label>Private notes <small>only you see these</small><textarea name="notes" maxlength="1000">${esc(x.notes)}</textarea></label>
+      <label class="chk"><input type="checkbox" name="active"${x.active!==false?" checked":""}> Published (page is live)</label>
+    </fieldset>
+    <div id="edErr"></div>
+    <div class="bar"><button class="btn" type="button" id="cancelEd">Cancel</button><button class="btn primary" type="submit" id="saveEd">${p?"Save changes":"Save & publish"}</button></div>
+  </form>`;
+  renderPhotos();
+  const f=document.getElementById("ed");
+  f.addEventListener("input",()=>{dirty=true});
+  f.elements.listingType.onchange=()=>{document.getElementById("priceHint").textContent=f.elements.listingType.value==="Rent"?"per month":"asking price"};
+  document.getElementById("phIn").onchange=e=>addPhotos([...e.target.files]);
+  document.getElementById("cancelEd").onclick=()=>{if(dirty&&!confirm("Discard unsaved changes?"))return;renderList()};
+  f.onsubmit=saveEditor;
+  window.scrollTo(0,0);
+}
+function renderPhotos(){
+  const ph=editing.photos||[];
+  document.getElementById("phs").innerHTML=ph.map((p,i)=>`<div class="ph"><img src="${thumb(p.id)}" alt="Photo ${i+1}">${i===0?`<span class="cover">Cover</span>`:""}<div class="tools"><button type="button" data-mv="${i}" data-d="-1" aria-label="Move left"${i===0?" disabled":""}>←</button><button type="button" data-rm="${i}" aria-label="Remove photo">✕</button><button type="button" data-mv="${i}" data-d="1" aria-label="Move right"${i===ph.length-1?" disabled":""}>→</button></div></div>`).join("");
+  document.querySelectorAll("[data-mv]").forEach(b=>b.onclick=()=>{const i=+b.dataset.mv,j=i+ +b.dataset.d;const a=editing.photos;[a[i],a[j]]=[a[j],a[i]];dirty=true;renderPhotos()});
+  document.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{editing.photos.splice(+b.dataset.rm,1);dirty=true;renderPhotos()});
+}
+function resize(file){return new Promise((res,rej)=>{const url=URL.createObjectURL(file);const im=new Image();im.onload=()=>{const M=1600;let w=im.naturalWidth,h=im.naturalHeight;const s=Math.min(1,M/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(im,0,0,w,h);URL.revokeObjectURL(url);res(c.toDataURL("image/jpeg",0.84).split(",")[1])};im.onerror=()=>{URL.revokeObjectURL(url);rej(new Error("Can't read "+file.name))};im.src=url})}
+async function addPhotos(files){
+  const msg=document.getElementById("upMsg");const btn=document.getElementById("saveEd");
+  files=files.filter(f=>/^image\//.test(f.type)).slice(0,25-(editing.photos||[]).length);
+  for(let i=0;i<files.length;i++){
+    uploading++;btn.disabled=true;msg.textContent=`Uploading photo ${i+1} of ${files.length}…`;
+    try{const b64=await resize(files[i]);const j=await call({action:"admin_upload",mime:"image/jpeg",b64,propertyId:editing.id||""});
+      if(j.ok){editing.photos=editing.photos||[];editing.photos.push({id:j.id});dirty=true;renderPhotos()}else msg.textContent=j.message||"A photo failed to upload."}
+    catch(e){if(e.message==="auth")return;msg.textContent="A photo failed to upload: "+e.message}
+    uploading--;
+  }
+  btn.disabled=uploading>0;if(!msg.textContent.includes("failed"))msg.textContent=files.length?"Photos added. Remember to save.":"";
+  document.getElementById("phIn").value="";
+}
+async function saveEditor(e){
+  e.preventDefault();if(uploading)return;
+  const f=e.target,v=k=>f.elements[k].value.trim();
+  const p={...editing,title:v("title"),listingType:v("listingType"),price:v("price"),area:v("area"),status:v("status"),address:v("address"),showAddress:f.elements.showAddress.checked,beds:v("beds"),baths:v("baths"),sqft:v("sqft"),description:v("description"),descriptionEs:v("descriptionEs"),requirements:v("requirements"),fees:v("fees"),attribution:v("attribution"),notes:v("notes"),active:f.elements.active.checked};
+  const err=m=>document.getElementById("edErr").innerHTML=`<div class="err">${esc(m)}</div>`;
+  if(!p.title)return err("Add a property title.");
+  if(!(Number(p.price)>0))return err("Add a price.");
+  const b=document.getElementById("saveEd");b.disabled=true;b.textContent="Saving…";
+  try{const j=await call({action:"admin_save",property:p});
+    if(!j.ok){b.disabled=false;b.textContent="Save";return err(j.message||"Couldn't save.")}
+    const i=props.findIndex(x=>x.id===j.property.id);if(i>=0)props[i]=j.property;else props.unshift(j.property);
+    dirty=false;renderList();toast(p.id?"Saved":"Property saved — link ready");
+    setTimeout(()=>{const el=[...document.querySelectorAll("[data-a=copyfb]")].find(x=>x.dataset.id===j.property.id);if(el)el.closest(".card").scrollIntoView({behavior:"smooth",block:"center"})},100);
+  }catch(x){if(x.message!=="auth"){b.disabled=false;b.textContent="Save";err("Can't reach the server. Your changes are still here — try again.")}}
+}
+window.addEventListener("beforeunload",e=>{if(dirty||uploading){e.preventDefault();e.returnValue=""}});
+
+if(token)loadList();else showLogin();
+})();
+</script>
+</body>
+</html>
